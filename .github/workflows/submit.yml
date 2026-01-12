@@ -2,7 +2,7 @@ name: Hourly Submission
 
 on:
     schedule:
-        - cron: "21 * * * *" # Runs at the start of every hour
+        - cron: "30 * * * *" # Runs at the 30th minute of every hour
     workflow_dispatch: # Allow manual trigger
 
 jobs:
