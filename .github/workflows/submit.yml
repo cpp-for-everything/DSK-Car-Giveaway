@@ -1,24 +1,24 @@
 name: Hourly Submission
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Runs at the start of every hour
-  workflow_dispatch:  # Allow manual trigger
+    schedule:
+        - cron: "21 * * * *" # Runs at the start of every hour
+    workflow_dispatch: # Allow manual trigger
 
 jobs:
-  submit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    submit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.9"
 
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4
+            - name: Install dependencies
+              run: pip install requests beautifulsoup4
 
-      - name: Run submission script
-        run: python ci_script.py
+            - name: Run submission script
+              run: python ci_script.py
